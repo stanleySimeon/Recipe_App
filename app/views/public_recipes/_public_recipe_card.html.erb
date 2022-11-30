@@ -1,0 +1,33 @@
+<div class="card w-full my-3 px-0">
+  <div class="card-body flex flex-col space-between">
+    <div class="mb-2">
+      <h3>
+        <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+      </h3>
+      <span class="text-sm md:text-lg lg:text-xl"><%= recipe.user.name %></span>
+    </div>
+    <div class="flex flex-col border-b md:border-y py-2 border-grayLight">
+      <% if recipe.public %>
+        <span class="badge bg-success text-white p-2 px-4 rounded-0">Public</span>
+      <% else %>
+        <span class="badge bg-secondary text-white p-2 px-4">Private</span>
+      <% end %>
+      <span class="text-lg text-light mt-4 p-2 bg-dark md:bg-transparent">Total foods: <%= recipe.recipe_foods.length %> </span>
+      <% sum = 0 %>
+      <span class="text-lg text-light p-2 bg-dark md:bg-transparent">Total price : $ <% recipe.recipe_foods.each do |food| %>
+      <% sum += food.food.price %>
+      <% end %>
+      <%= sum %>
+      </h5>
+    </div>
+  </div>
+  <div class="card-body">
+    <span class="font-semibold">Description</span>
+    <p class="card-text">
+      <%= recipe.description %>
+    </p>
+    <div class="d-flex justify-content-end">
+      <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
+    </div>
+  </div>
+ </div>

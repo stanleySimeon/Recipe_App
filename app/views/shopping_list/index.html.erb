@@ -1,0 +1,28 @@
+<div class="container px-0 flex flex-col justify-center mb-4">
+  <span class="w-full flex flex-col justify-start border-b border-grayLight mb-4 pb-2">
+    <h1 class="mb-4">ShoppingList</h1>
+    <span>
+      <span class="flex gap-2">Amount of food items to buy: <p class="font-semibold"><%= @shopping_list.count %></p></span>
+      <span class="flex gap-2">Total value of food needed: <p class="font-semibold">$<%= @shopping_list.sum(:price) %></p></span>
+    </span>
+  </span>
+  <table class="w-full mb-3 table table-hover">
+    <thead class="bg-dark text-grayLight text-sm md:text-xl lg:text-xl font-extralight">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_list.each do |food_item| %>
+      <tr class="odd:bg-slate-200 even:bg-slate-300 text-sm md:text-lg lg:text-xl">
+        <td><%= food_item.name %></td>
+        <td><%= food_item.price/2 %> grams</td>
+        <td>$<%= food_item.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Back to the foods page', foods_path %>
+</div>

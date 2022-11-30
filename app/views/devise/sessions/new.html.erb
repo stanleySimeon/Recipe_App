@@ -1,0 +1,28 @@
+<div class="container-fluid h-auto flex flex-col pt-0 pb-4 sm:py-12 m-0 justify-center align-items-center">
+<div class="card w-full md:mt-12 md:w-4/12 h-auto py-2 px-1 backdrop-blur-2 bg-white shadow-md">
+  <div class="w-full h-auto py-2 border-b border-grayLight mb-4 md:mb-6">
+    <h2 class="text-center">Log In</h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.label :email%><br />
+    <%= f.email_field :email, autofocus: false, placeholder: "johndoe@gmail.com", class: "w-full mt-2 px-1 mb-3 border-b rounded border-grayLight" %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, placeholder: "********", class: "w-full mt-2 px-1 mb-2 border-b rounded border-grayLight"  %>
+  <% if devise_mapping.rememberable? %>
+    <div class="field flex gap-2 align-items-center">
+      <%= f.check_box :remember_me%>
+      <%= f.label :remember_me, class: "text-skyBlue" %>
+    </div>
+  <% end %>
+
+  <div class="flex justify-center mt-4 space-x-6 mb-3 md:mt-6 md:mb-8">
+    <button class="btn btn-primary inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <%= f.submit "Submit" %>
+    </button>
+    <button class="btn inline-flex items-center py-2 px-4 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border border-primary">
+      <%= link_to "Sign up", new_registration_path(resource_name), class: "text-decoration-none text-primary" %>
+    </button>
+  </div>
+ <% end %>
+</div>
+</div>

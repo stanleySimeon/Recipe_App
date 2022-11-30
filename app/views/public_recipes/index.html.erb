@@ -1,0 +1,12 @@
+
+<div class="container px-0">
+  <h1 class="md:text-2xl lg:text-3xl text-grayDark">Public Recipe List</h1>
+  <% if @public_recipes.length != 0 %>
+  <% @public_recipes.each do |recipe| %>
+    <%= render partial: 'public_recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>
+  <% end %>
+
+  <% else %>
+    <h1>There are no public recipes to show</h1>
+  <% end %>
+</div>

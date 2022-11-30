@@ -1,0 +1,18 @@
+<div class="container b-2 mt-8">
+    <h2 class="text mb-4 md:mb-12 lg:mb-8">Add new food</h2>
+  <%= form_with model: @food, url: foods_path,  local: true, data: {turbo:false} do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, class: "w-full border focus:border-transparent focus:ring-1 rounded" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :measurement_unit, class: "form-label" %>
+      <%= f.number_field :measurement_unit, class: "w-full border focus:border-transparent focus:ring-1 rounded" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :price, class: "form-label" %>
+      <%= f.number_field :price, class: "w-full border focus:border-transparent focus:ring-1 rounded" %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

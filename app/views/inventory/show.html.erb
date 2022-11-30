@@ -1,0 +1,31 @@
+<section class = 'container px-0 flex flex-column mb-2 align-items-center pt-8'>
+  <div class="container px-0 flex flex-col md:felx-row  gap-4">
+    <span class="text-uppercase font-bold md:text-center md:text-xl lg:text-2xl"><%= @inventory.name %></span>
+    <%= link_to "/inventory_food/#{@inventory.id}/new", method: :post do %>
+      <div class="container px-0 flex md:justify-end">
+        <span class="text-uppercase text-sm md:text-xl btn btn-primary">Add Food</span>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="container px-0">
+    <table class = "w-full table table-hover mb-2 items-center" >
+      <thead class="bg-black text-grayLight text-sm md:text-xl lg:text-xl font-extralight">
+        <tr class="md:text-center">
+          <th>Food</th>
+          <th>Pounds</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-sm md:text-lg">
+        <% @inventory_food.each do |f| %>
+          <tr class="odd:bg-slate-200 even:bg-slate-300 text-sm md:text-lg lg:text-xl md:text-center">
+          <td><%= f.food.name %></td>
+          <td><%= f.quantity %> Lbs</td>
+          <td><%= button_to 'Delete', "/users/#{current_user.id}/inventories/#{@inventory.id}/foods/#{f.food.id}/inventory_food/#{f.id}", method: :delete, class: "text-danger" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

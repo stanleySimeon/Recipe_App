@@ -1,0 +1,94 @@
+<div class="mb-4 md:mb-6 flex justify-center items-center gap-2">
+  <span class="text-center text-xl md:text-3xl lg:text-4xl"><%=  @recipe.name %></span>
+  <% if @recipe.public %>
+    <span class="badge bg-primary text-white w-auto p-2 sm:p-2.5 md:p-4 text-md md:text-xl font-medium">Public</span>
+  <% else %>
+    <span class="badge bg-greenDark text-white w-auto p-2 sm:p-2.5 md:p-4 text-md md:text-xl font-medium">Private</span>
+  <% end %>
+</div>
+<div class="container w-full p-0 border rounded">
+  <div class="w-full md:mt-4 p-2 align-items-center">
+    <% if can? :update, @recipe %>
+      <%= button_to 'update', update_recipe_path(id: @recipe), method: :patch, class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="w-full px-2 border-b border-grayLight">
+    <h4 class="fw-normal my-1 text-sm sm:text:md md:text-xl text-grayDark">Preparation Time:
+      <% if @recipe.preparation_time/60 && @recipe.preparation_time%60 > 1 %>
+        <%= @recipe.preparation_time/60 %>hrs :
+        <%= @recipe.preparation_time%60 %>mins
+      <% else %>
+        <%= @recipe.preparation_time/60 %>hr :
+        <%= @recipe.preparation_time%60 %>min
+      <% end %>
+    </h4>
+    <h4 class="fw-normal my-1 text-sm sm:text:md md:text-xl text-grayDark">Cooking Time:
+      <% if @recipe.cooking_time/60 && @recipe.cooking_time%60 > 1 %>
+        <%= @recipe.cooking_time/60 %>hrs :
+        <%= @recipe.cooking_time%60 %>mins
+      <% else %>
+        <span class="text-black">
+          <%= @recipe.cooking_time/60 %>hr :
+          <%= @recipe.cooking_time%60 %>min
+        </span>
+      <% end %>
+    </h4>
+  </div>
+  <div class="row card-body px-2">
+    <div class="card-body col col-md-12 py-2">
+      <h4 class="fw-bold my-0">Description</h4>
+      <p class="fs-6 mt-2"><%= @recipe.description %></p>
+    </div>
+  </div>
+</div>
+<div class="container mt-5 px-0 flex flex-col md:flex-row justify-center md:justify-between content">
+  <div class='w-auto flex md:flex-col items-center px-0 gap-2 mb-4'>
+    <button type="button" class="btn btn-primary w-full text-xs md:text-lg p-2 md:py-4 text-white md:text-md bg-primary" data-bs-toggle="modal" data-bs-target="#recipeModal">
+      Generate shopping list
+    </button>
+    <%= link_to new_recipe_recipe_food_path(@recipe.id), class: "btn btn-border w-full text-xs md:text-lg text-center py-2 md:py-4 px-4 text-primary border border-grayDark text-decoration-none" do %>
+      <span>Add Ingredients</span>
+    <% end %>
+  </div>
+  <span class="bar w-4"></span>
+  <div class="w-full flex justify-center gap-0 md:gap-8">
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="recipeModalLabel">Generating shopping list</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <%= form_with url: "/inventory_food/#{:inventory_food_id}/shopping_list/#{:recipe_id}", method: :post do |form| %>
+            <div class="modal-body">
+              Choose an inventory to use:
+              <%= form.select :inventory_id, current_user.inventories.order(:name).pluck(:name, :id), {}, class: "mt-3 w-full border focus:border-transparent focus:ring-1 rounded" %>
+            </div>
+            <div class="modal-footer">
+              <%= form.submit 'Generate', class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <table class="w-full mb-4 table table-hover">
+      <thead class="bg-black text-grayLight text-sm md:text-xl lg:text-xl font-extralight">
+        <tr class>
+          <th>Food</th><br/>
+          <br/>
+          <th>Quantity</th>
+          <br/>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shopping_list.each do |food_item| %>
+        <tr class="text-start text-sm md:text-lg lg:text-xl odd:bg-slate-200 even:bg-slate-300">
+          <td><%= food_item.name %></td>
+          <td><%= food_item.price/2 %> g</td>
+          <td>$<%= food_item.price %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
