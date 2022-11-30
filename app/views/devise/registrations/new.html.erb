@@ -1,7 +1,7 @@
-<div class="container-fluid h-auto flex flex-col pt-0 pb-4 sm:py-12 m-0 justify-center align-items-center">
+<div class="container px-0 flex justify-center items-center md:pt-16 ">
   <div class="card w-full md:w-4/12 h-auto py-2 px-2 backdrop-blur-2 bg-white shadow-md">
     <div class="w-full h-auto py-2 border-b border-grayLight mb-4 md:mb-6">
-      <h2 class="text-center">Sign Up</h2>
+      <h2 class="text-center md:text-start text-primary">Sign Up</h2>
     </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource%>
@@ -15,20 +15,20 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "********", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
+    </div>
 
-  <div class="mt-2 space-x-6 md:mt-4 md:mb-4">
-    <button class="btn btn-primary inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      <%= f.submit "Submit" %>
-    </button>
-  </div>
-  <div class="container w-full flex-wrap sm:flex sm:text-center items-center sm:align-items-center mt-1 sm:mt-0 sm:gap-2 p-0">
-    <p>Already have an account?</p>
-    <p class="pt-0"><%= link_to "Log in", new_session_path(resource_name), class: "text-decoration-none text-primary" %></p>
-  </div>
+    <div class="mt-2 space-x-6 md:mt-4 md:mb-4">
+      <button class="btn btn-primary inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <%= f.submit "Submit" %>
+      </button>
+    </div>
+    <div class="container w-full flex-wrap sm:flex sm:text-center items-center sm:align-items-center mt-1 sm:mt-0 sm:gap-2 p-0">
+      <p>Already have an account?</p>
+      <p class="pt-0"><%= link_to "Log in", new_session_path(resource_name), class: "text-decoration-none text-primary" %></p>
+    </div>
 <% end %>
 </div>
 </div>
