@@ -106,9 +106,6 @@ To get a local copy up and running follow these simple example steps.
 ​
 ## 🤝 Contributing
 ​
-- GitHub: [@medsonmoombe](https://github.com/medsonmoombe)
-- GitHub: [@ibr5500](https://github.com/ibr5500)
-​
 Contributions, issues, and feature requests are welcome!
 ​
 Feel free to check the [issues page](../../issues/).
