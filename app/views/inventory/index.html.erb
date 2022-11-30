@@ -1,0 +1,24 @@
+<div class = 'container px-0 d-flex flex-column mb-2 justify-around gap-3'>
+  <% if @inventories.empty? %>
+    <h2 class="mt-4 text-center"><em>There are no Inventories yet !!</em></h2>
+  <% else %>
+    <% @inventories.each do |inventory| %>
+      <div class='container p-2 flex flex-col gap-3 rounded border border-grayLight'>
+        <%= link_to inventory.name, user_inventory_path(id: inventory), class:'text-uppercase'%>
+        <div class=''>
+          <p>
+            <%= inventory.description %>
+          </p>
+        </div>
+        <%= button_to 'REMOVE', user_inventory_path(id: inventory), method: :delete, class:'text-danger'%>
+      </div>
+    <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to new_user_inventory_path do %>
+      <div class="container px-0 flex justify-center md:justify-start items-center md:items-start">
+        <span class="btn btn-primary bg-primary">New Inventory</span>
+      </div>
+    <% end %>
+  <% end %>
+</div>

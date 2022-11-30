@@ -1,0 +1,19 @@
+<%= form_with model: @recipe, url: user_recipe_index_path, local: true, data: {turbo:false} do |f| %>
+  <div class="card-body  p-0 sm:p-4 md:p-6 flex flex-col justify-center w-full sm:w-3/4 md:w-6/12 h-auto ml-auto mr-auto mt-2 sm:mt-6 sm:m-auto md:m-auto">
+    <h2 class="text-md md:text-xl lg:text-3xl font-bold mb-4"> Add a new recipe </h2>
+    <% if @recipe.errors.any? %>
+      <div id="error_explanation">
+        <p class="text-danger">All fields are required</p>
+      </div>
+    <% end %>
+    <span class="flex flex-col gap-3 mt-2">
+      <%= f.text_field :name, placeholder:"Recipe name", class:"w-full border focus:border-transparent focus:ring-1 rounded"  %>
+      <%= f.text_field :preparation_time, placeholder:"Preparation time", class:"w-full border focus:border-transparent focus:ring-1 rounded" %>
+      <%= f.text_field :cooking_time, placeholder:"Cooking time", class:"w-full border focus:border-transparent focus:ring-1 rounded" %>
+      <%= f.text_area :description, placeholder:"Description...", rows: "5", class: "block p-2 w-full border focus:border-transparent focus:ring-1 rounded" %>
+    </span>
+    <span class="flex gap-2 mt-2 sm:mt-4 md:mt-6 align-items-center text-primary"><%= f.check_box :public, {}, "true", "false"  %> Make this recipe public</span>
+    <%= f.submit "Save Recipe", class: "btn btn-success p-2 mt-2 mb-4" %>
+  </div>
+<% end %>
+

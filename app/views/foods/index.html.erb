@@ -1,0 +1,28 @@
+<div class="container h-screen px-0">
+  <div class="container w-full flex justify-between items-center mt-8 mb-4 p-0">
+    <h2 class="text-grayDark">List of foods</h2>
+  </div>
+  <table class="table table-hover">
+    <thead class="table-dark text-xs md:text-md lg:text-lg">
+      <tr class="font-thin text-center">
+        <th scope="col">Food</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr class="text-xs md:text-md lg:text-lg text-center even:bg-slate-200 odd:bg-slate-300">
+          <th scope="row"><%= food.name %></th>
+          <td><%= food.measurement_unit %></td>
+          <td>$<%= food.price %></td>
+          <td><%= button_to "Delete", food_path(food.id), method: :delete, class: "text-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="container-fluid mt-2 md:mt-4 bg-primary flex justify-center">
+    <%= link_to "Add food", new_food_path , class:"w-full fixed bottom-0 z-20 text-white bg-primary text-center py-2 md:py-3 text-decoration-none" %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+ <%= form_with model: @recipe_food, url: recipe_recipe_food_index_path , local: true, data: {turbo:false} do |f| %>
+    <div class="container px-0">
+      <%= f.label :Ingredient, class:"form-label" %>
+      <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]}, {include_blank: true}, class:"w-full border focus:border-transparent focus:ring-1 rounded", id:"foodSelect" %>
+      <%= f.label :quantity, class:"form-label mt-2" %>
+      <%= f.number_field :quantity, class:"w-full border focus:border-transparent focus:ring-1 rounded", required: true, placeholder: '1',  min: 1 %>
+      <hr>
+      <%= f.submit "Add food", class:"btn btn-primary" %>
+    <div>
+  <% end %>

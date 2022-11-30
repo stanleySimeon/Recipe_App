@@ -1,0 +1,15 @@
+
+<div class="w-full md:w-6/12 m-auto h-auto flex flex-col pt-0 py-12 md:py-0 lg:py-0 justify-center align-items-center relative">
+  <div class="container p-0">
+    <% if @recipes.empty? %>
+      <h2 class="text-center">You don't have any recipes yet!</h2>
+    <% else %>
+      <%= render 'recipe/recipe' %>
+    <% end %>
+  </div>
+</div>
+<div class="container-fluid mt-2 md:mt-4 bg-primary flex justify-center">
+  <% if user_signed_in? %>
+    <%= link_to "New Recipe", new_user_recipe_path(user_id: current_user), class: "w-full fixed bottom-0 z-20 text-white bg-primary text-center py-2 md:py-3 text-decoration-none" %>
+  <% end %>
+</div>

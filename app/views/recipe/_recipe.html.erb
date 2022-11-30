@@ -1,0 +1,28 @@
+<% @recipes.includes([:user]).each do |recipe| %>
+  <div id="container-card" class="container w-full md:w-3/4 lg:w-9/12 h-auto flex flex-col pt-2 px-0  pb-2 mb-4 md:mb-6 sm:py-12 m-0 justify-center items-start border rounded">
+    <div class="w-full flex justify-between items-center px-2">
+      <span class="text-sm md:text-lg lg:text-2xl">Recipe No: <%= recipe.id%></span>
+      <span>
+        <% if recipe.public %>
+          <span class="badge bg-primary">Public</span>
+        <% else %>
+          <span class="badge bg-secondary">Private</span>
+        <% end %>
+      </span>
+    </div>
+    <%= link_to(recipe_path(recipe.id)) do %>
+      <div class="w-full border-b p-2 border-grayLight sm:shadow-md shadow-md flex justify-between sm:flex-row space-x-2">
+        <div class="flex flex-col gap-2">
+          <span class="text-grayDark text-md md:text-lg lg:text-2xl text-decoration-none font-semibold"><%= recipe.name %></span>
+          <span class="text-grayDark"><i class="text-decoration-none text-xs md:text-lg"><%= recipe.user.name %></i></span>
+        </div>
+      </div>
+      <span class="list-group list-group-flush w-full">
+        <p class="list-group-item text-sm md:text-lg"><%= recipe.description %></p>
+      </span>
+    <% end %>
+    <div class="container mt-2 md:mt-4 flex justify-end items-end">
+      <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn text-danger" %>
+    </div>
+  </div>
+<% end %>
