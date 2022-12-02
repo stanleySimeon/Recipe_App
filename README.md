@@ -92,11 +92,6 @@ To get a local copy up and running follow these simple example steps.
 
 - To run all the tests: rspec ./spec
 
-### Deployment
-
-- To deploy the app to Heroku, please visit [ Heroku official website](https://devcenter.heroku.com/articles/getting-started-with-rails6)
-
-​
 ## Authors
 ​
  👤 **Stanley SIMEON**
