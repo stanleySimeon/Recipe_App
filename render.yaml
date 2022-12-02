@@ -1,4 +1,4 @@
-databases: RAILS_MASTER_KEY
+databases: 0731108042c4a2c7f994b85defff8b9e
 - name: recipe_app
     user: recipe_app
 
