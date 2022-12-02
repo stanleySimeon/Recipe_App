@@ -1,34 +1,27 @@
-<div class="container-fluid h-auto flex flex-col pt-0 pb-4 sm:py-12 m-0 justify-center align-items-center">
-  <div class="card w-full md:w-4/12 h-auto py-2 px-2 backdrop-blur-2 bg-white shadow-md">
-    <div class="w-full h-auto py-2 border-b border-grayLight mb-4 md:mb-6">
-      <h2 class="text-center">Sign Up</h2>
+<div class="container px-0 flex justify-center items-center md:pt-12">
+  <div class="w-full md:mt-12 md:w-5/12 h-auto backdrop-blur-3xl rounded shadow-lg sm:p-2 pt-2 px-4">
+    <div class="w-full h-auto py-2 border-b border-grayLight mb-6 md:mb-12">
+      <h2 class="text-center md:text-start text-light">Sign Up</h2>
     </div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource%>
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %><br />
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: false, placeholder: "johndoe@gmail.com", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "********", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "rounded w-full mt-2 px-1 mb-3 border-b-1 border-grayLight" %>
+    <span class="text-sm md:text-lg">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource%>
+        <%= f.label :name, class: "text-white" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "input w-full mt-2 pl-2 mb-3 border-b border-grayLight text-white bg-transparent border-x-0 border-t-0 focus:border-grayLight focus:ring-transparent" %><br />
+        <%= f.label :email, class: "text-white" %><br />
+        <%= f.email_field :email, autofocus: false, placeholder: "johndoe@gmail.com", class: "input w-full mt-2 pl-2 mb-3 border-b border-grayLight text-white bg-transparent border-x-0 border-t-0 focus:border-grayLight focus:ring-transparent" %>
+        <%= f.label :password, class: "text-white" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "********", class: "input w-full mt-2 pl-2 mb-3 border-b border-grayLight text-white bg-transparent border-x-0 border-t-0 focus:border-grayLight focus:ring-transparent" %>
+        <div class="field">
+          <%= f.label :password_confirmation, class: "text-white" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "input w-full mt-2 pl-2 mb-3 border-b border-grayLight text-white bg-transparent border-x-0 border-t-0 focus:border-grayLight focus:ring-transparent" %>
+        </div>
+        <button class="btn btn-primary mb-2"><%= f.submit "Submit" %></button>
+        <div class="container w-full flex-wrap flex text-center items-center mt-1 p-0 gap-2">
+          <p class="text-grayLight">Already have an account?</p>
+          <p><%= link_to "Log in", new_session_path(resource_name), class: "text-decoration-none text-primary" %></p>
+        </div>
+      <% end %>
+    </span>
   </div>
-
-  <div class="mt-2 space-x-6 md:mt-4 md:mb-4">
-    <button class="btn btn-primary inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      <%= f.submit "Submit" %>
-    </button>
-  </div>
-  <div class="container w-full flex-wrap sm:flex sm:text-center items-center sm:align-items-center mt-1 sm:mt-0 sm:gap-2 p-0">
-    <p>Already have an account?</p>
-    <p class="pt-0"><%= link_to "Log in", new_session_path(resource_name), class: "text-decoration-none text-primary" %></p>
-  </div>
-<% end %>
-</div>
 </div>
