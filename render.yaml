@@ -1,6 +1,6 @@
 databases:
 - name: recipe_app
-    databaseName: recipe_app
+    database: recipe_app
     user: recipe_app
 
 services:
