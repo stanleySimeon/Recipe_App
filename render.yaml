@@ -1,4 +1,4 @@
-databases: 0731108042c4a2c7f994b85defff8b9e
+databases:
 - name: recipe_app
     user: recipe_app
 
