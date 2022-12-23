@@ -6,7 +6,7 @@
 ​
 ## Built With
 
-- Ruby on rails
+- Ruby on Rails
 - Tailwind CSS
 - NPM, Git, Github
 ​
