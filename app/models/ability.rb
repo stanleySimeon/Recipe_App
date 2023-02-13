@@ -6,7 +6,7 @@ class Ability
     return unless user.present?
 
     can :manage, :all
-    if user.role == 'admin'
+    if user.admin?
       can :manage, :all
     else
       can :read, :all
