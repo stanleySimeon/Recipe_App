@@ -1,113 +1,178 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-​
-# Recipe App
+<a name="readme-top"></a>
 
-> This is a recipe app that allows users to search for recipes by ingredients. It also allows users to add recipes to their favorites and view them later. Users are able to generate a shopping list of ingredients for the recipes they have added to their favorites. the app is built using the following technologies: Ruby, Ruby on Rails, Tailwind CSS and devise to the authentication system.
-​
-## Built With
+<div align="center">
+  <h3><b>RECIPE APP</b></h3>
+</div>
 
-- Ruby on rails
-- Tailwind CSS
-- NPM, Git, Github
-​
-## Getting Started
-​
-**This project includes Rubocop (linters) for Reporting errors in Ruby and An open-source, automated tool for improving the quality of web pages, which has audits for performance, accessibility, progressive web apps, SEO and more.**
+<!-- TABLE OF CONTENTS -->
 
-Run the following commands to install dependencies
-​
-```
+# 📗 Table of Contents
 
-gem install rubocop
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
 
-> If you’d rather install RuboCop using bundler, don’t require it in your Gemfile:
+<!-- PROJECT DESCRIPTION -->
 
- gem 'rubocop', require: false
+# 📖 RECIPE APP <a name="about-project"></a>
 
-> RuboCop is stable between major versions, both in terms of API and cop configuration.
-  We aim the ease the maintenance of RuboCop extensions and the upgrades between RuboCop releases.
-  All big changes are reserved for major releases.
-  To prevent an unwanted RuboCop update you might want to use a conservative version lock in your Gemfile:
+**RECIPE APP** is a responsive website, which can help users to explore his article, reflections, and others from different devices.
 
- gem 'rubocop', '~> 1.0', require: false
+## 🛠 Built With <a name="built-with"></a>
 
-```
+- [Ruby on rails](https://rubyonrails.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-### Usage
+### Tech Stack <a name="tech-stack"></a>
 
-```
-rubocop --color
-rubocop --autocorrect
-```
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.rubyonrails.org/">Ruby on rails</a></li>
+    <li><a href="https://www.tailwindcss.com/">Tailwind CSS</a></li>
+  </ul>
+  <summary>Server</summary>
+    <ul>
+      <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    </ul>
+</details>
 
-To get a local copy up and running follow these simple example steps.
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+<!-- - [Live Demo Link](https://mstanle.me) -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-1. Node package Manager(NPM)
-   - To install NPM on your local machine, please visit [ NPM official website](https://nodejs.org/en/download/)
+In order to run this project you need:
 
-2. Git
-    - To install Git on your local machine, please visit [ Git official website](https://git-scm.com/downloads)
+```sh
+ npm
+ Ruby
+ Gem
+ cancan
+ Rspec
+```
 
-3. Github
-    - To create a Github account, please visit [ Github official website](
-
-4. Ruby
-    - To install Ruby on your local machine, please visit [ Ruby official website](https://www.ruby-lang.org/en/documentation/installation/)
-
-5. Ruby on Rails
-    - To install Ruby on Rails on your local machine, please visit [ Ruby on Rails official website](https://guides.rubyonrails.org/getting_started.html)
-
-6. Postgresql
-    - To install Postgresql on your local machine, please visit [ Postgresql official website](https://www.postgresql.org/download/)
-
-​
-- Text editor(Vscode, Atom, NotePad++, Sublime)
-​
 ### Setup
 
-- Clone the repository to your local machine
-    ``` git clone https://github.com/stanleySimeon/Recipe_App.git```
+Clone this repository to your desired folder:
 
-- Change directory into the cloned repository
-    ``` cd Recipe_App```
-
-- Install all the dependencies
-    ``` bundle install```
-
-- Run the following commands to run the app
-    ``` rails db:create```
-    ``` rails db:migrate```
-    ``` rails s```
-
-- In your browser, go to
-    ``` http://localhost:3000```
+```sh
+  cd your_folder_name (where you want to clone the project)
+  git clone https://github.com/stanleySimeon/Recipe_App.git
+```
 
 ### Install
 
-- To install rspec: gem install rspec
+Install this project with:
+
+```sh
+  cd Recipe_App
+  bundle install
+  npm install
+  rake db:create
+  rake db:migrate
+  rake assets:precompile
+```
 
 ### Usage
 
-- To run all the tests: rspec ./spec
-## Authors
-​
- 👤 **Stanley SIMEON**
+To run the project, execute the following command:
+
+```sh
+  rails s
+  and
+  open http://localhost:3000
+```
+
+### Run tests
+
+To run the tests, execute the following command:
+
+```sh
+  rspec
+```
+
+### Deployment
+
+You can deploy this project using:
+
+  ```sh
+    heroku login
+    heroku create Recipe_App
+    git push heroku master
+  ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Author**
+
 - GitHub: [@stanleySimeon](https://github.com/stanleySimeon)
 - Twitter: [@mstanleyme](https://twitter.com/mstanleyme)
-- LinkedIn: [@stanleysimeon](https://www.linkedin.com/in/stanleysimeon/)
-​
-## 🤝 Contributing
-​
+- LinkedIn: [@stanleysimeon](https://linkedin.com/in/stanleysimeon)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
 Contributions, issues, and feature requests are welcome!
-​
+
 Feel free to check the [issues page](../../issues/).
-​
-## Show your support
-​
-Give a ⭐️ if you like this project!
-​
-## 📝 License
-​
-This project is [MIT](./MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, please give it a ⭐️!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- I would like to thank the following people:
+
+  - [@microverse](https://github.com/microverseinc) for the opportunity to learn and grow as a developer.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
