@@ -56,7 +56,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- - [Live Demo Link](https://mstanle.me) -->
+- [Live Demo Link](https://rails-jxd1.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

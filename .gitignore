@@ -8,8 +8,7 @@
 /.bundle
 
 # .gitignore
-
-node_modules
+node_modules 
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -48,3 +47,4 @@ config/credentials.yml.enc
 config/master.key
 secrets.yml
 node_modules
+
