@@ -48,3 +48,4 @@ config/credentials.yml.enc
 config/master.key
 secrets.yml
 node_modules
+
