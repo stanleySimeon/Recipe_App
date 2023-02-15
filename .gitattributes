@@ -1,3 +1,4 @@
 *.js linguist-language=Ruby
 *.html linguist-language=Ruby
+*.HTML linguist-language=Ruby
 linguist-language=Ruby
