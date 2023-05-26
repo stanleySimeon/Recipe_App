@@ -27,9 +27,6 @@ Rails.application.routes.draw do
 
   patch '/recipe/:id', to: 'recipe#toggle_public', as: :update_recipe
 
-
-
-
   resources :recipe, only: [:index, :show, :destroy] do
     resources :recipe_food, only: [:create, :new, :edit, :update, :destroy]
   end
