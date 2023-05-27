@@ -46,5 +46,4 @@ credentials.yml.enc
 config/credentials.yml.enc
 config/master.key
 secrets.yml
-node_modules
-
+node_modules.env
